@@ -5,15 +5,29 @@
 
 if [ ! -d "/var/www/cakebox" ]
 then
-## nodejs
+##composer
+sudo apt-get install curl git
 cd /tmp
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-source ~/.bashrc
-nvm install v5.3.0
+curl -sS http://getcomposer.org/installer | php
+mv /tmp/composer.phar /usr/bin/composer
+chmod +x /usr/bin/composer
 
-cd /var/www
-git clone https://github.com/Cakebox/cakebox.git
-cd cakebox
+## nodejs
+sudo apt-get install python g++ make
+cd /tmp
+wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz && cd node-v*
+./configure
+make
+make install
+
+## bower
+sudo npm install -g bower
+
+cd /var/www/
+git clone https://github.com/Cakebox/Cakebox-light.git cakebox
+cd cakebox/
+git checkout -b $(git describe --tags $(git rev-list --tags --max-count=1))
 composer install
 bower install --allow-root
 
