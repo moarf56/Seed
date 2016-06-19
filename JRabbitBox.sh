@@ -89,8 +89,7 @@ Email: $email <br>" >> /var/www/base/config.txt
 #Install Dialog
 apt-get -y --force-yes install dialog sudo
 
-cd /var/www/base/
-if [ ! -d "index_fichiers" ]
+if [ ! -d "/var/www/base/index_fichiers/" ]
 then
 
 #JRabbit Index
@@ -112,7 +111,6 @@ sed -i '/## début config accueil serveur ##/a location ^~ \/ {' /etc/nginx/site
 service nginx restart
 fi
 
-cd ~/JRabbitBox/
 #Menu
 cmd=(dialog --separate-output --checklist "JRabbitBox " 30 76 24)
 options=(01 "Security" off
