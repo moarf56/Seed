@@ -1,0 +1,2 @@
+JRabbitBox Infos:
+JRabbitBox v2.0 available

@@ -1,0 +1,99 @@
+<style type="text/css">
+        * {
+                margin: 0;
+                padding: 0;
+        }
+	.login_box {
+                border: 3px solid #CCC;
+                font-family:Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                margin: 10px 100px 100px 100px;
+                background-color:white;
+                padding: 5px;
+        }
+        .info_box {
+                border: 3px solid #CCC;
+                font-family:Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                margin: 10px 150px 10px 150px;
+                background-color:white;
+                padding: 5px;
+                text-align: center;
+                color: red;
+                text-decoration: blink;
+                height: auto;
+                width: auto;
+        }
+
+        body {
+color:black;
+background-color:white;
+background-image:url(images/background.png);
+}
+
+/* --- Navbar Style --- */
+
+#nav {
+	width: 450px;
+	height: 48px;
+	float: left;
+	background: transparent;
+	margin: 24px 0 0 0;
+	z-index: 1;
+}
+
+/* -- Purple Menu -- */
+.menu {
+	font-family: "Trebuchet MS", Arial, san-serif;
+	width:420px;
+	height:42px;
+	position:relative;
+	font-size:11px;
+	  margin:0 auto;
+  margin-right: auto;
+	z-index:1000;
+}
+.menu ul li a {
+	display:block;
+	text-decoration:none;
+	color:#fff;
+	font-weight:bold;
+	width:81px;
+	height:42px;
+	text-align:center;
+	border-bottom: 0;
+	background-image:url('images/center.png');
+	line-height:48px;
+	font-size:11px;
+	overflow:hidden;
+	padding-left: 1px;
+}
+/* End Caps Styling */
+.menu .left_nosub {
+	background-image:url('images/left.png');
+	padding-left: 1px;
+	margin-right: -1px;
+}
+.menu .right_hassub {
+	background-image:url('images/right.png');
+}
+.menu .right_nosub {
+	background-image:url('images/right.png');
+}
+.menu ul {padding:0; margin:0; list-style: none;}
+.menu ul li {float:left; position:relative;}
+.menu ul li ul {display: none;}
+
+/* Button ":hover" Styling */
+.menu ul li:hover a {color:#200033; background:url('images/center_hassub.png');}
+.menu ul li:hover ul {display:block; position:absolute; top:42px; left:0; width:152px; margin: 0; padding: 0;}
+.menu ul li:hover ul li a.center_hassub {background:#6a3; color:#fff;}
+.menu ul li:hover ul li:hover a.center_hassub {background:#6fc; color:#544a3a;}
+.menu ul li:hover ul li ul {display: none;}
+
+.menu ul li:hover .left_nosub {color:#200033; background:url('images/left_nosub.png');}
+.menu ul li:hover .right_hassub {color:#200033; background:url('images/right_hassub.png') ;}
+.menu ul li:hover .right_nosub {color:#200033; background:url('images/right_nosub.png') ;}
+

@@ -1,0 +1,15 @@
+<?php
+$app["cakebox.root"] = "/home/USER/torrents/";
+$app["cakebox.access"] = "/cakebox/USER/";
+$app["cakebox.language"] = "fr";
+$app["directory.ignoreDotFiles"] = false;
+$app["directory.ignore"] = "//";
+$app["player.default_type"] = "html5";
+$app["player.auto_play"] = "false";
+$app["bs.login"] = "";
+$app["bs.passwd"] = "";
+$app["bs.apikey"] = "";
+$app["rights.canPlayMedia"] = true;
+$app["rights.canDownloadFile"] = true;
+$app["rights.canArchiveDirectory"] = true;
+$app["rights.canDelete"] = true;
