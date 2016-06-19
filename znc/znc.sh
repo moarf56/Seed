@@ -23,10 +23,8 @@ echo "#ZNC
 iptables -t filter -A INPUT -p tcp --dport $zncport -j ACCEPT
 iptables -t filter -A OUTPUT -p tcp --dport $zncport -j ACCEPT" >> /etc/init.d/firewall
 
-wget http://www.jrabbit.org/scripts/JRabbitBox/tools/znc
-mv znc ~/JRabbitBox/tools/
 rm /etc/init.d/znc
-cp ~/JRabbitBox/tools/znc /etc/init.d/znc
+cp ~/JRabbitBox/znc/znc /etc/init.d/znc
 chmod 755 /etc/init.d/znc
 chmod +x /etc/init.d/znc
 
