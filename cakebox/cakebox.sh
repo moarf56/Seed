@@ -23,7 +23,7 @@ read rootuser
 fi
 
 cp ~/JRabbitBox/cakebox/cakeboxuser /var/www/cakebox/config/
-mv cakeboxuser $rootuser.php
+mv /var/www/cakebox/config/cakeboxuser /var/www/cakebox/config/$rootuser.php
 sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 
 echo "server {
