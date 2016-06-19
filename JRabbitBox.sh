@@ -95,9 +95,7 @@ apt-get -y --force-yes install dialog sudo
 
 #JRabbit Index
 mv /var/www/base/index.html /var/www/base/bonoboxindex.html
-cp ~/JRabbitBox/index/index.rar /var/www/base/
-unrar x /var/www/base/index.rar
-rm /var/www/base/index.rar
+cp -R ~/JRabbitBox/index/ /var/www/base/
 
 sed -i "\$awww-data ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
 
