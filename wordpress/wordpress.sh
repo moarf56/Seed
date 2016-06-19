@@ -24,10 +24,9 @@ echo -e "${CYELLOW} Wordpress User: $CEND"
 read wpuser
 echo -e "${CYELLOW}Password: $CEND"
 read wpmdp
-wget http://www.jrabbit.org/scripts/JRabbitBox/tools/mysqldb.sh
-chmod +x mysqldb.sh
+chmod +x ~/JRabbitBox/phpmysql/mysqldb.sh
 echo -e "${CYELLOW}MySql Password:  $CEND"
-source mysqldb.sh wordpress $wpuser $wpmdp
+source ~/JRabbitBox/phpmysql/mysqldb.sh wordpress $wpuser $wpmdp
 sed -i "/database_name_here/c define('DB_NAME', 'wordpress');" /var/www/wordpress/wp-config.php
 sed -i "/username_here/c define('DB_USER', '$wpuser');" /var/www/wordpress/wp-config.php
 sed -i "/password_here/c define('DB_PASSWORD', '$wpmdp');" /var/www/wordpress/wp-config.php
