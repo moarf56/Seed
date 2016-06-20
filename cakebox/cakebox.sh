@@ -15,11 +15,13 @@ chmod +x /usr/bin/composer
 ## nodejs
 sudo apt-get install python g++ make
 cd /tmp
-wget -N http://nodejs.org/dist/node-latest.tar.gz
-tar xzvf node-latest.tar.gz && cd node-v*
-./configure
-make
-make install
+#wget -N http://nodejs.org/dist/node-latest.tar.gz
+#tar xzvf node-latest.tar.gz && cd node-v*
+#./configure
+#make
+#make install
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 ## bower
 sudo npm install -g bower
