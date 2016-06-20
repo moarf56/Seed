@@ -27,9 +27,8 @@ sudo apt-get install -y nodejs
 sudo npm install -g bower
 
 cd /var/www/
-git clone https://github.com/Cakebox/Cakebox-light.git cakebox
+git clone https://github.com/cakebox/cakebox.git
 cd cakebox/
-git checkout -b $(git describe --tags $(git rev-list --tags --max-count=1))
 composer install
 bower install --allow-root
 
