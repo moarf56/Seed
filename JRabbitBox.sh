@@ -93,37 +93,37 @@ if [ ! -d "/var/www/base/index_fichiers/" ]
 then
 
 #JRabbit Index
-mv /var/www/base/index.html /var/www/base/bonoboxindex.html
-cp -R ~/JRabbitBox/index/* /var/www/base/
+#mv /var/www/base/index.html /var/www/base/bonoboxindex.html
+#cp -R ~/JRabbitBox/index/* /var/www/base/
 
-sed -i "\$awww-data ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
+#sed -i "\$awww-data ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
 
-cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
-sed -i '/location ^~ \/ {/,/ allow all;/d' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i "/## début config accueil serveur ##/a auth_basic_user_file \"\/etc\/nginx\/passwd\/rutorrent_passwd_$rootuser\";" /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a auth_basic \"JRabbitBox\";' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a #allow all;' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a satisfy any;' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a include \/etc\/nginx\/conf.d\/cache.conf;' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a include \/etc\/nginx\/conf.d\/php.conf;' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a root \/var\/www\/base;' /etc/nginx/sites-enabled/rutorrent.conf
-sed -i '/## début config accueil serveur ##/a location ^~ \/ {' /etc/nginx/sites-enabled/rutorrent.conf
-service nginx restart
-fi
+#cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
+#sed -i '/location ^~ \/ {/,/ allow all;/d' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i "/## début config accueil serveur ##/a auth_basic_user_file \"\/etc\/nginx\/passwd\/rutorrent_passwd_$rootuser\";" /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a auth_basic \"JRabbitBox\";' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a #allow all;' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a satisfy any;' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a include \/etc\/nginx\/conf.d\/cache.conf;' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a include \/etc\/nginx\/conf.d\/php.conf;' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a root \/var\/www\/base;' /etc/nginx/sites-enabled/rutorrent.conf
+#sed -i '/## début config accueil serveur ##/a location ^~ \/ {' /etc/nginx/sites-enabled/rutorrent.conf
+#service nginx restart
+#fi
 
 #Menu
 cmd=(dialog --separate-output --checklist "JRabbitBox " 30 76 24)
 options=(01 "Security" off
 02 "Rtorrent Limit User Space" off
-03 "CakeBox" off
+#03 "CakeBox" off
 05 "MySQL / Adminer (PHPmyadmin)" off
 10 "LXDE/VNC" off
 20 "Handbrake + MKVToolNix" off
 25 "Plex" off
 30 "Openvpn" off
 40 "Squid" off
-45 "Wordpress" off
-47 "Pydio" off
+#45 "Wordpress" off
+#47 "Pydio" off
 50 "ZNC" off
 60 "SCP (download)" off
 70 "Reboot" on)
