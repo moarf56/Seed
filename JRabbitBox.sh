@@ -89,8 +89,8 @@ Email: $email <br>" >> /var/www/base/config.txt
 #Install Dialog
 apt-get -y --force-yes install dialog sudo
 
-if [ ! -d "/var/www/base/index_fichiers/" ]
-then
+#if [ ! -d "/var/www/base/index_fichiers/" ]
+#then
 
 #JRabbit Index
 #mv /var/www/base/index.html /var/www/base/bonoboxindex.html
