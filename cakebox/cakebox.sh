@@ -30,6 +30,9 @@ cd /var/www/
 git clone https://github.com/cakebox/cakebox.git
 cd cakebox/
 composer install
+
+sed -i "/"sha256": "https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js",/c "sha256": "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/2.5.3-sha256.js"," bower.json
+
 bower install --allow-root
 
 if [ -z "$rootuser" ]; then
