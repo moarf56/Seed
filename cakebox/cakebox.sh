@@ -37,9 +37,11 @@ echo -e "${CYELLOW}What's your username?: $CEND"
 read rootuser
 fi
 
-cp $cwd/cakebox/cakeboxuser /var/www/cakebox/config/
-mv /var/www/cakebox/config/cakeboxuser /var/www/cakebox/config/$rootuser.php
+cp $cwd/cakebox/cakeboxuser /var/www/cakebox/config/$rootuser.php
 sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
+
+#PHP Version
+php=$(php -v)
 
 echo "server {
     listen 81;
@@ -62,7 +64,7 @@ echo "server {
         return 404;
     }
     location @site {
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/var/run/$php.sock;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME \$document_root/index.php;
         fastcgi_param APPLICATION_ENV production;
@@ -123,8 +125,7 @@ cakeboxuser=$dir
 
 if [ ! -f "/var/www/cakebox/config/$cakeboxuser.php" ]
 then
-cp ~/JRabbitBox/cakebox/cakeboxuser /var/www/cakebox/config/
-mv cakeboxuser $dir.php
+cp $cwd/cakebox/cakeboxuser /var/www/cakebox/config/$dir.php
 sed -i "s/USER/$dir/g" /var/www/cakebox/config/$dir.php
 
 cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
