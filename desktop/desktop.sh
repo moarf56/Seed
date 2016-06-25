@@ -31,7 +31,7 @@ fi
 chown -R $rootuser /home/$rootuser/
 sudo -u $rootuser tightvncserver :1
 
-	cp ~/JRabbitBox/desktop/tightvncserver /etc/init.d/tightvncserver
+	cp tightvncserver /etc/init.d/tightvncserver
 	sed -i "2a\export USER='$rootuser'" /etc/init.d/tightvncserver
         chmod 755 /etc/init.d/tightvncserver
 	chmod +x /etc/init.d/tightvncserver
