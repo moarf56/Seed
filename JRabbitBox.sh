@@ -62,7 +62,7 @@ IPserver=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1
 IPhome=($SSH_CLIENT)
 
 #Current folder
-cwd=$(pwd)
+cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 #Main user & mail
 if [ -f "/var/www/rutorrent/histo.log" ] ; then
