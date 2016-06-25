@@ -26,7 +26,7 @@ echo -e "${CYELLOW}Password: $CEND"
 read wpmdp
 chmod +x ~/JRabbitBox/phpmysql/mysqldb.sh
 echo -e "${CYELLOW}MySql Password:  $CEND"
-source ../phpmysql/mysqldb.sh wordpress $wpuser $wpmdp
+source $cwd/phpmysql/mysqldb.sh wordpress $wpuser $wpmdp
 sed -i "/database_name_here/c define('DB_NAME', 'wordpress');" /var/www/wordpress/wp-config.php
 sed -i "/username_here/c define('DB_USER', '$wpuser');" /var/www/wordpress/wp-config.php
 sed -i "/password_here/c define('DB_PASSWORD', '$wpmdp');" /var/www/wordpress/wp-config.php
