@@ -136,84 +136,98 @@ do
 #Security
 chmod +x ./security/security.sh
 source ./security/security.sh
+cd -
 ;;
 
 02)
 #Rtorrent limit
 chmod +x ./rtorrent/RtorrentLimit.sh
 source ./rtorrent/RtorrentLimit.sh
+cd -
 ;;
 
 03)
 #Cakebox
 chmod +x ./cakebox/cakebox.sh
 source ./cakebox/cakebox.sh
+cd -
 ;;
 
 05)
 #MySQL / PHPmyadmin
 chmod +x ./phpmysql/phpmysql.sh
 source ./phpmysql/phpmysql.sh
+cd -
 ;;
 
 10)
 #LXDE/VNC
 chmod +x ./desktop/desktop.sh
 source ./desktop/desktop.sh
+cd -
 ;;
 
 20)
 #Encode Handbrake + MKVToolNix
 chmod +x ./encode/encode.sh
 source ./encode/encode.sh
+cd -
 ;;
 
 25)
 #PLEX
 chmod +x ./plex/plex.sh
 source ./plex/plex.sh
+cd -
 ;;
 
 30)
 #OpenVPN
 chmod +x ./openvpn/openvpn.sh
 source ./openvpn/openvpn.sh
+cd -
 ;;
 
 40)
 #Squid
 chmod +x ./squid/squid.sh
 source ./squid/squid.sh
+cd -
 ;;
 
 45)
 #Wordpress
 chmod +x ./wordpress/wordpress.sh
 source ./wordpress/wordpress.sh
+cd -
 ;;
 
 47)
 #Pydio
 chmod +x ./pydio/pydio.sh
 source ./pydio/pydio.sh
+cd -
 ;;
 
 50)
 #ZNC
 chmod +x ./znc/znc.sh
 source ./znc/znc.sh
+cd -
 ;;
 
 60)
 #SCP
 chmod +x ./scp/scp.sh
 source ./scp/scp.sh
+cd -
 ;;
 
 70)
 #Reboot
 chmod +x reboot.sh
 source reboot.sh
+cd -
 ;;
 
     esac
