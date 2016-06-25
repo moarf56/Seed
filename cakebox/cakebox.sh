@@ -37,7 +37,7 @@ echo -e "${CYELLOW}What's your username?: $CEND"
 read rootuser
 fi
 
-cp cakeboxuser /var/www/cakebox/config/
+cp $cwd/cakebox/cakeboxuser /var/www/cakebox/config/
 mv /var/www/cakebox/config/cakeboxuser /var/www/cakebox/config/$rootuser.php
 sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 
