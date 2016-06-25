@@ -153,7 +153,7 @@ echo "#!/bin/sh
 test -x /usr/sbin/backup-manager || exit 0
 /usr/sbin/backup-manager" >> /etc/cron.daily/backup-manager
 
-cp backup-manager-post /etc/backup-manager-post
+cp $cwd/security/backup-manager-post /etc/backup-manager-post
 sed -i "/\$dest = array('monitoring@test.com');/c \$dest = array('$email');" /etc/backup-manager-post
 
 chmod +x /etc/cron.daily/backup-manager
