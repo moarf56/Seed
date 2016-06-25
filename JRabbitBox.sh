@@ -61,6 +61,9 @@ IPserver=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1
 #IP Home
 IPhome=($SSH_CLIENT)
 
+#Current folder
+cwd=$(pwd)
+
 #Main user & mail
 if [ -f "/var/www/rutorrent/histo.log" ] ; then
 	#Root User
@@ -136,98 +139,98 @@ do
 #Security
 chmod +x ./security/security.sh
 source ./security/security.sh
-cd -
+cd $cwd
 ;;
 
 02)
 #Rtorrent limit
 chmod +x ./rtorrent/RtorrentLimit.sh
 source ./rtorrent/RtorrentLimit.sh
-cd -
+cd $cwd
 ;;
 
 03)
 #Cakebox
 chmod +x ./cakebox/cakebox.sh
 source ./cakebox/cakebox.sh
-cd -
+cd $cwd
 ;;
 
 05)
 #MySQL / PHPmyadmin
 chmod +x ./phpmysql/phpmysql.sh
 source ./phpmysql/phpmysql.sh
-cd -
+cd $cwd
 ;;
 
 10)
 #LXDE/VNC
 chmod +x ./desktop/desktop.sh
 source ./desktop/desktop.sh
-cd -
+cd $cwd
 ;;
 
 20)
 #Encode Handbrake + MKVToolNix
 chmod +x ./encode/encode.sh
 source ./encode/encode.sh
-cd -
+cd $cwd
 ;;
 
 25)
 #PLEX
 chmod +x ./plex/plex.sh
 source ./plex/plex.sh
-cd -
+cd $cwd
 ;;
 
 30)
 #OpenVPN
 chmod +x ./openvpn/openvpn.sh
 source ./openvpn/openvpn.sh
-cd -
+cd $cwd
 ;;
 
 40)
 #Squid
 chmod +x ./squid/squid.sh
 source ./squid/squid.sh
-cd -
+cd $cwd
 ;;
 
 45)
 #Wordpress
 chmod +x ./wordpress/wordpress.sh
 source ./wordpress/wordpress.sh
-cd -
+cd $cwd
 ;;
 
 47)
 #Pydio
 chmod +x ./pydio/pydio.sh
 source ./pydio/pydio.sh
-cd -
+cd $cwd
 ;;
 
 50)
 #ZNC
 chmod +x ./znc/znc.sh
 source ./znc/znc.sh
-cd -
+cd $cwd
 ;;
 
 60)
 #SCP
 chmod +x ./scp/scp.sh
 source ./scp/scp.sh
-cd -
+cd $cwd
 ;;
 
 70)
 #Reboot
 chmod +x reboot.sh
 source reboot.sh
-cd -
+cd $cwd
 ;;
 
     esac
