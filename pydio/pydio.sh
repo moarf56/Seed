@@ -80,7 +80,7 @@ echo -e "${CYELLOW} Pydio password: $CEND"
 read pydiomdp
 chmod +x ~/JRabbitBox/phpmysql/mysqldb.sh
 echo -e "${CYELLOW} MySQL password: $CEND"
-source ../phpmysql/mysqldb.sh pydio $pydiouser $pydiomdp
+source $cwd/phpmysql/mysqldb.sh pydio $pydiouser $pydiomdp
 
 sed -i "/post_max_size = 10M/c post_max_size = 20G" /etc/php5/fpm/php.ini
 sed -i "/upload_max_filesize = 10M/c upload_max_filesize = 20G" /etc/php5/fpm/php.ini
