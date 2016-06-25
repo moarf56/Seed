@@ -134,86 +134,86 @@ do
     case $choice in
 01)
 #Security
-chmod +x ~/JRabbitBox/security/security.sh
-source ~/JRabbitBox/security/security.sh
+chmod +x ./security/security.sh
+source ./security/security.sh
 ;;
 
 02)
 #Rtorrent limit
-chmod +x ~/JRabbitBox/rtorrent/RtorrentLimit.sh
-source ~/JRabbitBox/rtorrent/RtorrentLimit.sh
+chmod +x ./rtorrent/RtorrentLimit.sh
+source ./rtorrent/RtorrentLimit.sh
 ;;
 
 03)
 #Cakebox
-chmod +x ~/JRabbitBox/cakebox/cakebox.sh
-source ~/JRabbitBox/cakebox/cakebox.sh
+chmod +x ./cakebox/cakebox.sh
+source ./cakebox/cakebox.sh
 ;;
 
 05)
 #MySQL / PHPmyadmin
-chmod +x ~/JRabbitBox/phpmysql/phpmysql.sh
-source ~/JRabbitBox/phpmysql/phpmysql.sh
+chmod +x ./phpmysql/phpmysql.sh
+source ./phpmysql/phpmysql.sh
 ;;
 
 10)
 #LXDE/VNC
-chmod +x ~/JRabbitBox/desktop/desktop.sh
-source ~/JRabbitBox/desktop/desktop.sh
+chmod +x ./desktop/desktop.sh
+source ./desktop/desktop.sh
 ;;
 
 20)
 #Encode Handbrake + MKVToolNix
-chmod +x ~/JRabbitBox/encode/encode.sh
-source ~/JRabbitBox/encode/encode.sh
+chmod +x ./encode/encode.sh
+source ./encode/encode.sh
 ;;
 
 25)
 #PLEX
-chmod +x ~/JRabbitBox/plex/plex.sh
-source ~/JRabbitBox/plex/plex.sh
+chmod +x ./plex/plex.sh
+source ./plex/plex.sh
 ;;
 
 30)
 #OpenVPN
-chmod +x ~/JRabbitBox/openvpn/openvpn.sh
-source ~/JRabbitBox/openvpn/openvpn.sh
+chmod +x ./openvpn/openvpn.sh
+source ./openvpn/openvpn.sh
 ;;
 
 40)
 #Squid
-chmod +x ~/JRabbitBox/squid/squid.sh
-source ~/JRabbitBox/squid/squid.sh
+chmod +x ./squid/squid.sh
+source ./squid/squid.sh
 ;;
 
 45)
 #Wordpress
-chmod +x ~/JRabbitBox/wordpress/wordpress.sh
-source ~/JRabbitBox/wordpress/wordpress.sh
+chmod +x ./wordpress/wordpress.sh
+source ./wordpress/wordpress.sh
 ;;
 
 47)
 #Pydio
-chmod +x ~/JRabbitBox/pydio/pydio.sh
-source ~/JRabbitBox/pydio/pydio.sh
+chmod +x ./pydio/pydio.sh
+source ./pydio/pydio.sh
 ;;
 
 50)
 #ZNC
-chmod +x ~/JRabbitBox/znc/znc.sh
-source ~/JRabbitBox/znc/znc.sh
+chmod +x ./znc/znc.sh
+source ./znc/znc.sh
 ;;
 
 60)
 #SCP
-chmod +x ~/JRabbitBox/scp/scp.sh
-source ~/JRabbitBox/scp/scp.sh
+chmod +x ./scp/scp.sh
+source ./scp/scp.sh
 ;;
 
 70)
 #Reboot
-chmod +x ~/JRabbitBox/reboot.sh
-source ~/JRabbitBox/reboot.sh
+chmod +x reboot.sh
+source reboot.sh
 ;;
 
     esac
