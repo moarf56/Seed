@@ -67,7 +67,7 @@ echo "server {
         return 404;
     }
     location @site {
-        fastcgi_pass unix:/var/run/$php.sock;
+        fastcgi_pass unix:/var/run/php7.0-fpm.sock;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME \$document_root/index.php;
         fastcgi_param APPLICATION_ENV production;
