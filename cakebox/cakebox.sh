@@ -31,7 +31,7 @@ git clone https://github.com/cakebox/cakebox.git
 cd cakebox/
 composer install
 
-sed -i "/"sha256": "https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js",/c "sha256": "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/2.5.3-sha256.js"," bower.json
+sed -i -e "s/"sha256": "https:\/\/crypto-js.googlecode.com\/svn\/tags\/3.1.2\/build\/rollups\/sha256.js",/"sha256": "https:\/\/storage.googleapis.com\/google-code-archive-downloads\/v2\/code.google.com\/crypto-js\/2.5.3-sha256.js",/g bower.json
 
 bower install --allow-root
 
@@ -47,33 +47,35 @@ sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 php=$(php -v)
 
 echo "server {
-    listen 81;
-    server_name _;
-    root /var/www/cakebox/public;
-    index index.php;
-    allow 127.0.0.1; # only the proxy
-    deny all;
-    charset utf-8;
-    include /etc/nginx/conf.d/cache.conf;
-    access_log /var/log/nginx/cakebox-access.log;
-    error_log /var/log/nginx/cakebox-error.log;
-    location = / {
-        try_files @site @site;
-    }
-    location / {
-        try_files \$uri \$uri/ @site;
-    }
-    location ~ \\.php$ {
-        return 404;
-    }
-    location @site {
-        fastcgi_pass unix:/var/run/php7.0-fpm.sock;
-        include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME \$document_root/index.php;
-        fastcgi_param APPLICATION_ENV production;
-        ## uncomment when running via https
-        ## fastcgi_param HTTPS on;
-    }
+        listen 81;
+        server_name _;
+        # only the proxy
+        allow 127.0.0.1;
+        deny all;
+        root /var/www/cakebox/public/;
+        access_log /var/log/nginx/cakebox-access.log;
+        error_log /var/log/nginx/cakebox-error.log;
+        #site root is redirected to the app boot script
+        location = / {
+            try_files @site @site;
+        }
+        #all other locations try other files first and go to our front controller if none of them exists
+        location / {
+            try_files $uri $uri/ @site;
+        }
+        #return 404 for all php files as we do have a front controller
+        location ~ \.php$ {
+            return 404;
+        }
+        #main configuration
+        location @site {
+            fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+            include fastcgi_params;
+            fastcgi_param  SCRIPT_FILENAME $document_root/index.php;
+            ## use debug instead of production to get more log
+            fastcgi_param APPLICATION_ENV production;
+            ## fastcgi_param HTTPS on;
+        }
 }" >> /etc/nginx/sites-enabled/cakebox.conf
 
 cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
@@ -94,7 +96,7 @@ echo "location /cakebox/ {
 	}
     }" >> /etc/nginx/sites-enabled/rutorrent.conf
 
-service nginx restart
+service nginx restart && service php7.0-fpm restart
 
 cd /var/www/cakebox/
 git pull origin master
@@ -143,6 +145,6 @@ echo "location /cakebox/$cakeboxuser/ {
 fi
 done
 fi
-service nginx restart
+service nginx restart && service php7.0-fpm restart
 
 echo "CakeBox: http://www.$IPserver/cakebox/ <br>" >> /var/www/base/config.txt
