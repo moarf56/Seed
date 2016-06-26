@@ -118,7 +118,7 @@ apt-get -y --force-yes install dialog sudo
 cmd=(dialog --separate-output --checklist "JRabbitBox " 30 76 24)
 options=(01 "Security" off
 02 "Rtorrent Limit User Space" off
-#03 "CakeBox" off
+03 "CakeBox" off
 05 "MySQL / Adminer (PHPmyadmin)" off
 10 "LXDE/VNC" off
 20 "Handbrake + MKVToolNix" off
