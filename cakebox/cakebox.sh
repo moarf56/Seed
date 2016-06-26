@@ -31,7 +31,7 @@ git clone https://github.com/cakebox/cakebox.git
 cd cakebox/
 composer install
 
-sed -i -e "s/"sha256": "https:\/\/crypto-js.googlecode.com\/svn\/tags\/3.1.2\/build\/rollups\/sha256.js",/"sha256": "https:\/\/storage.googleapis.com\/google-code-archive-downloads\/v2\/code.google.com\/crypto-js\/2.5.3-sha256.js",/g bower.json
+sed -i -e 's/"sha256": "https:\/\/crypto-js.googlecode.com\/svn\/tags\/3.1.2\/build\/rollups\/sha256.js",/"sha256": "https:\/\/storage.googleapis.com\/google-code-archive-downloads\/v2\/code.google.com\/crypto-js\/2.5.3-sha256.js",/g' bower.json
 
 bower install --allow-root
 
@@ -44,7 +44,7 @@ cp $cwd/cakebox/cakeboxuser /var/www/cakebox/config/$rootuser.php
 sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 
 #PHP Version
-php=$(php -v)
+php=$(php -v | grep -o -E '[0-9]+' | head -1 | sed -e 's/^0\+//')
 
 echo "server {
         listen 81;
@@ -69,7 +69,7 @@ echo "server {
         }
         #main configuration
         location @site {
-            fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+            fastcgi_pass unix:/var/run/php/php$php.0-fpm.sock;
             include fastcgi_params;
             fastcgi_param  SCRIPT_FILENAME $document_root/index.php;
             ## use debug instead of production to get more log
