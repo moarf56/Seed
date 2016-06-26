@@ -78,7 +78,7 @@ echo "server {
         location @site {
             fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
             include fastcgi_params;
-            fastcgi_param  SCRIPT_FILENAME $document_root/index.php;
+            fastcgi_param  SCRIPT_FILENAME \$document_root/index.php;
             ## use debug instead of production to get more log
             fastcgi_param APPLICATION_ENV production;
             ## fastcgi_param HTTPS on;
