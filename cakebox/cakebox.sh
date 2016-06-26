@@ -153,5 +153,6 @@ fi
 done
 fi
 service nginx restart && service php7.0-fpm restart
+apt-get update -y && apt-get upgrade -y
 
 echo "CakeBox: http://www.$IPserver/cakebox/ <br>" >> /var/www/base/config.txt
