@@ -46,44 +46,7 @@ sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 #PHP Version
 php=$(php -v | grep -o -E '[0-9]+' | head -1 | sed -e 's/^0\+//')
 
-echo "server {
-        listen 81;
-        server_name _;
-
-        # only the proxy
-        allow 127.0.0.1;
-        deny all;
-
-        root /var/www/cakebox/public/;
-
-        access_log /var/log/nginx/cakebox-access.log;
-        error_log /var/log/nginx/cakebox-error.log;
-
-        #site root is redirected to the app boot script
-        location = / {
-            try_files @site @site;
-        }
-
-        #all other locations try other files first and go to our front controller if none of them exists
-        location / {
-            try_files $uri $uri/ @site;
-        }
-
-        #return 404 for all php files as we do have a front controller
-        location ~ \.php$ {
-            return 404;
-        }
-
-        #main configuration
-        location @site {
-            fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
-            include fastcgi_params;
-            fastcgi_param  SCRIPT_FILENAME \$document_root/index.php;
-            ## use debug instead of production to get more log
-            fastcgi_param APPLICATION_ENV production;
-            ## fastcgi_param HTTPS on;
-        }
-}" >> /etc/nginx/sites-enabled/cakebox.conf
+cp $cwd/cakebox/cakebox.conf /etc/nginx/sites-enabled/cakebox.conf
 
 cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
 sed -i '$ d' /etc/nginx/sites-enabled/rutorrent.conf
