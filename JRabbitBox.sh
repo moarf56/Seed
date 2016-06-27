@@ -137,6 +137,7 @@ do
     case $choice in
 01)
 #Security
+cd $cwd
 chmod +x ./security/security.sh
 source ./security/security.sh
 cd $cwd
