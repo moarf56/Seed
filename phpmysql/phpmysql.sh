@@ -15,7 +15,7 @@ do
 
 1)
 #MySQL
-sudo apt-get -y --force-yes install mysql-server php5-mysql
+sudo apt-get -y --force-yes install mysql-server php7.0-mysql
 ;;
 
 2)
