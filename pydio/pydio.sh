@@ -13,7 +13,7 @@ if [ -f "$file" ]
 then
 	echo "$file found."
 else
-	apt-get -y --force-yes install mysql-server php5-mysql php5 php5-fpm php5-gd php5-cli php5-mcrypt
+	apt-get -y --force-yes install mysql-server php7.0-mysql php7.0 php7.0-fpm php7.0-gd php7.0-cli php7.0-mcrypt
 fi
 
 cd /tmp
