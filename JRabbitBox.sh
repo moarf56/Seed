@@ -221,7 +221,7 @@ source ./znc/znc.sh
 cd $cwd
 ;;
 
-50)
+55)
 #Shellinabox
 chmod +x ./shellinabox/shellinabox.sh
 source ./shellinabox/shellinabox.sh
