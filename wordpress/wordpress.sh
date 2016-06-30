@@ -10,7 +10,7 @@ if [ -f "$file" ]
 then
         echo "MySQL found."
 else
-        apt-get -y --force-yes install mysql-server php5-mysql
+        apt-get -y --force-yes install mysql-server php7.0-mysql
 fi
 
 cd /var/www/
