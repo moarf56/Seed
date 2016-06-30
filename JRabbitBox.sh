@@ -128,6 +128,7 @@ options=(01 "Security" off
 #45 "Wordpress" off
 #47 "Pydio" off
 50 "ZNC" off
+55 "Shellinabox" off
 60 "SCP (download)" off
 70 "Reboot" on)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -217,6 +218,13 @@ cd $cwd
 #ZNC
 chmod +x ./znc/znc.sh
 source ./znc/znc.sh
+cd $cwd
+;;
+
+50)
+#Shellinabox
+chmod +x ./shellinabox/shellinabox.sh
+source ./shellinabox/shellinabox.sh
 cd $cwd
 ;;
 
