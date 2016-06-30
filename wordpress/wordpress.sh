@@ -59,7 +59,7 @@ cd /etc/nginx/sites-enabled/
                 log_not_found off;
         }
         location ^~ / {
-	try_files $uri $uri/ /index.php?$args;
+	try_files \$uri \$uri/ /index.php?\$args;
             root /var/www/wordpress;
             include /etc/nginx/conf.d/php.conf;
             include /etc/nginx/conf.d/cache.conf;
@@ -73,7 +73,7 @@ else
 	sed -i '$ d' /etc/nginx/sites-enabled/rutorrent.conf
 	echo "location ^~ /wordpress {
 	root /var/www;
-	try_files $uri $uri/ /index.php?$args;
+	try_files \$uri \$uri/ /index.php?\$args;
 	include /etc/nginx/conf.d/php.conf;
 	include /etc/nginx/conf.d/cache.conf;
 	satisfy any;
