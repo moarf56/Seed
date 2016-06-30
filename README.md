@@ -8,6 +8,6 @@ apt-get install git-core -y <br>
 2) Download & install JRabbitBox: <br>
 cd ~/ <br>
 git clone https://github.com/warezcmpt/JRabbitBox <br>
-cd JRabbitBox
+cd JRabbitBox <br>
 chmod a+x JRabbitBox.sh <br>
 bash JRabbitBox.sh <br>
