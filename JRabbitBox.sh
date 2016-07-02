@@ -126,7 +126,7 @@ options=(01 "Security" off
 30 "Openvpn" off
 40 "Squid" off
 45 "Wordpress" off
-#47 "Pydio" off
+47 "Pydio" off
 50 "ZNC" off
 55 "Shellinabox" off
 60 "SCP (download)" off
