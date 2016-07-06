@@ -130,6 +130,8 @@ options=(01 "Security" off
 50 "ZNC" off
 55 "Shellinabox" off
 60 "SCP (download)" off
+65 "JRabbitMux" off
+66 "JRabbitSync" off
 70 "Reboot" on)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
@@ -232,6 +234,24 @@ cd $cwd
 #SCP
 chmod +x ./scp/scp.sh
 source ./scp/scp.sh
+cd $cwd
+;;
+
+65)
+#JRabbitMux
+cd ~/
+git clone https://github.com/warezcmpt/JRabbitMux
+cd JRabbitMux
+chmod a+x JRabbitMux.sh
+cd $cwd
+;;
+
+66)
+#JRabbitSync
+cd ~/
+git clone https://github.com/warezcmpt/JRabbitSync
+chmod a+x ~/JRabbitSync/Install_JRabbitSync.sh
+source ~/JRabbitSync/Install_JRabbitSync.sh 
 cd $cwd
 ;;
 
