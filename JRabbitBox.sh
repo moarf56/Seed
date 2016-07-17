@@ -39,6 +39,9 @@ fi
 
 if [ $VERSION  == "8" ] ; then
 
+#Current folder
+cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 #Test bonobox
 folder="/var/www/base"
 if [ ! -d "$folder" ] ; then
@@ -60,9 +63,6 @@ IPserver=$(ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1
 
 #IP Home
 IPhome=($SSH_CLIENT)
-
-#Current folder
-cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 #Main user & mail
 if [ -f "/var/www/rutorrent/histo.log" ] ; then
