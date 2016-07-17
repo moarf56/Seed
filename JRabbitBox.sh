@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # variables couleurs
 CSI="\033["
 CEND="${CSI}0m"
@@ -116,9 +115,17 @@ cd $cwd
 #fi
 
 #Php Version bonobox includes/deb.sh
+php=$(php -v | grep -o -E '[0-9]+' | head -1 | sed -e 's/^0\+//')
+if [ "$php" -eq "5" ]; then
 PHPPATH="/etc/php5"
 PHPNAME="php5"
 PHPSOCK="/var/run/php5-fpm.sock"
+fi
+if [ "$php" -eq "7.0" ]; then
+PHPPATH="/etc/php/7.0"
+PHPNAME="php7.0"
+PHPSOCK="/run/php/php7.0-fpm.sock"
+fi
 
 #Menu
 cmd=(dialog --separate-output --checklist "JRabbitBox " 30 76 24)
