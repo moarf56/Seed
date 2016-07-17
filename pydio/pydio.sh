@@ -49,7 +49,7 @@ echo "location ~ \\.php {
     fastcgi_param  SERVER_ADDR        \$server_addr;
     fastcgi_param  SERVER_PORT        \$server_port;
     fastcgi_param  SERVER_NAME        \$server_name;
-    fastcgi_pass unix:/var/run/php/$PHPNAME-fpm.sock;
+    fastcgi_pass unix:$PHPSOCK;
 }" >> /etc/nginx/conf.d/pydio_php
 
 echo "location ~* \\.(?:ico|css|js|gif|jpe?g|png)\$ {
