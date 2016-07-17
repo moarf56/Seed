@@ -47,6 +47,7 @@ sed -i "s/USER/$rootuser/g" /var/www/cakebox/config/$rootuser.php
 php=$(php -v | grep -o -E '[0-9]+' | head -1 | sed -e 's/^0\+//')
 
 cp $cwd/cakebox/cakebox.conf /etc/nginx/sites-enabled/cakebox.conf
+sed -i "/location @site {/a fastcgi_pass unix:/var/run/php/$PHPNAME-fpm.sock;" /etc/nginx/sites-enabled/cakebox.conf
 
 cp /etc/nginx/sites-enabled/rutorrent.conf /etc/nginx/sites-enabled/rutorrent.old
 sed -i '$ d' /etc/nginx/sites-enabled/rutorrent.conf
