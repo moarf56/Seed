@@ -115,6 +115,11 @@ cd $cwd
 #service nginx restart
 #fi
 
+#Php Version bonobox includes/deb.sh
+PHPPATH="/etc/php/7.0"
+PHPNAME="php7.0"
+PHPSOCK="/run/php/php7.0-fpm.sock"
+
 #Menu
 cmd=(dialog --separate-output --checklist "JRabbitBox " 30 76 24)
 options=(01 "Security" off
