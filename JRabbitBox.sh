@@ -24,10 +24,6 @@ echo -e "${CGREEN} Email: contact@jrabbit.org $CEND "
 echo -e "${CGREEN} Author: warezcmpt $CEND "
 echo -e "${CGREEN} Version: 2.0 $CEND "
 
-#Test version Debian
-VERSION1=`sed -n 1p /etc/debian_version`
-VERSION=${VERSION1:0:1}
-
 # controle droits utilisateur
 var2=`sed -n 2p ~/language`
 if [ $(id -u) -ne 0 ]; then
@@ -35,11 +31,13 @@ echo -e "${CRED} Sorry only root user can install JRabbitBox $CEND"
 exit 1
 fi
 
-
-if [ $VERSION  == "8" ] ; then
-
 #Current folder
 cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+#Test version Debian
+VERSION1=`sed -n 1p /etc/debian_version`
+VERSION=${VERSION1:0:1}
+if [ $VERSION  == "8" ] ; then
 
 #Test bonobox
 folder="/var/www/base"
@@ -120,11 +118,14 @@ if [ "$php" -eq "5" ]; then
 PHPPATH="/etc/php5"
 PHPNAME="php5"
 PHPSOCK="/var/run/php5-fpm.sock"
-fi
-if [ "$php" -eq "7.0" ]; then
+elif [ "$php" -eq "7.0" ]; then
 PHPPATH="/etc/php/7.0"
 PHPNAME="php7.0"
 PHPSOCK="/var/run/php/php7.0-fpm.sock"
+else
+echo -e "${CRED} OUPS something went wrong with Bonobox install $CEND"
+echo -e "${CRED} please do it again... $CEND"
+exit 1
 fi
 
 #Menu
