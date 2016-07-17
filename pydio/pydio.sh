@@ -13,7 +13,7 @@ if [ -f "$file" ]
 then
 	echo "$file found."
 else
-	apt-get -y --force-yes install mysql-server php7.0-mysql php7.0 php7.0-fpm php7.0-gd php7.0-cli php7.0-mcrypt
+	apt-get -y --force-yes install mysql-server $PHPNAME-mysql $PHPNAME $PHPNAME-fpm $PHPNAME-gd $PHPNAME-cli $PHPNAME-mcrypt
 fi
 
 cd /tmp
@@ -49,7 +49,7 @@ echo "location ~ \\.php {
     fastcgi_param  SERVER_ADDR        \$server_addr;
     fastcgi_param  SERVER_PORT        \$server_port;
     fastcgi_param  SERVER_NAME        \$server_name;
-    fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    fastcgi_pass unix:/var/run/php/$PHPNAME-fpm.sock;
 }" >> /etc/nginx/conf.d/pydio_php
 
 echo "location ~* \\.(?:ico|css|js|gif|jpe?g|png)\$ {
@@ -82,15 +82,15 @@ chmod +x ~/JRabbitBox/phpmysql/mysqldb.sh
 echo -e "${CYELLOW} MySQL password: $CEND"
 source $cwd/phpmysql/mysqldb.sh pydio $pydiouser $pydiomdp
 
-sed -i "/post_max_size = 10M/c post_max_size = 20G" /etc/php/7.0/fpm/php.ini
-sed -i "/upload_max_filesize = 10M/c upload_max_filesize = 20G" /etc/php/7.0/fpm/php.ini
-sed -i "/max_file_uploads = 20/c max_file_uploads = 20000" /etc/php/7.0/fpm/php.ini
-sed -i "/post_max_size = 10M/c post_max_size = 20G" /etc/php/7.0/fpm/php.ini
-sed -i "/output_buffering = 4096/c output_buffering = off" /etc/php/7.0/fpm/php.ini
+sed -i "/post_max_size = 10M/c post_max_size = 20G" $PHPPATH/fpm/php.ini
+sed -i "/upload_max_filesize = 10M/c upload_max_filesize = 20G" $PHPPATH/fpm/php.ini
+sed -i "/max_file_uploads = 20/c max_file_uploads = 20000" $PHPPATH/fpm/php.ini
+sed -i "/post_max_size = 10M/c post_max_size = 20G" $PHPPATH/fpm/php.ini
+sed -i "/output_buffering = 4096/c output_buffering = off" $PHPPATH/fpm/php.ini
 
 sed -i "/client_max_body_size 10M;/c client_max_body_size 20G;" /etc/nginx/sites-enabled/rutorrent.conf
 
-service php7.0-fpm restart
+service $PHPNAME-fpm restart
 service nginx restart
 service mysql restart
 
