@@ -46,7 +46,7 @@ cwd="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 folder="/var/www/base"
 if [ ! -d "$folder" ] ; then
 			cd /tmp
-			git clone https://github.com/warezcmpt/rutorrent-bonobox
+			git clone https://github.com/exrat/rutorrent-bonobox
 			cd rutorrent-bonobox
 			sed -i 's/reboot/#reboot/g' bonobox.sh
 			sed -i 's/source-#reboot/source-reboot/g' bonobox.sh
