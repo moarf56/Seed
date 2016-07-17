@@ -124,7 +124,7 @@ fi
 if [ "$php" -eq "7.0" ]; then
 PHPPATH="/etc/php/7.0"
 PHPNAME="php7.0"
-PHPSOCK="/run/php/php7.0-fpm.sock"
+PHPSOCK="/var/run/php/php7.0-fpm.sock"
 fi
 
 #Menu
