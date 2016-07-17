@@ -91,6 +91,7 @@ Email: $email <br>" >> /var/www/base/config.txt
 
 #Install Dialog
 apt-get -y --force-yes install dialog sudo
+cd $cwd
 
 #if [ ! -d "/var/www/base/index_fichiers/" ]
 #then
@@ -140,7 +141,6 @@ do
     case $choice in
 01)
 #Security
-cd $cwd
 chmod +x ./security/security.sh
 source ./security/security.sh
 cd $cwd
