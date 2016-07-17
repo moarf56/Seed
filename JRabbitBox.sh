@@ -43,7 +43,7 @@ if [ $VERSION  == "8" ] ; then
 folder="/var/www/base"
 if [ ! -d "$folder" ] ; then
 			cd /tmp
-			git clone https://github.com/exrat/rutorrent-bonobox
+			git clone https://github.com/warezcmpt/rutorrent-bonobox
 			cd rutorrent-bonobox
 			sed -i 's/reboot/#reboot/g' bonobox.sh
 			sed -i 's/source-#reboot/source-reboot/g' bonobox.sh
